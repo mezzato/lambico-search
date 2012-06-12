@@ -10,7 +10,7 @@ import org.lambico.po.hibernate.EntityBase;
 value = {
     @NamedQuery(name = "Recipe.allRecipesByCook",
     query =
-    "from Recipe b where upper(b.cook.firstName) = upper(?) and upper(b.cook.lastName) = upper(?)")})
+    "from Recipe r where upper(r.cook.firstName) = upper(?) and upper(r.cook.lastName) = upper(?)")})
 public class Recipe extends EntityBase {
 
 	private int numPages = 0;
