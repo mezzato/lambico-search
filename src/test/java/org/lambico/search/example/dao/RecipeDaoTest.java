@@ -13,17 +13,17 @@ public class RecipeDaoTest extends BaseTest {
     private RecipeDao recipeDao;
     
     
-    public void testAllBooksByBorrower() {
+    public void testAllRecipesByCook() {
     	System.out.println(String.format("The classpath is %s",  System.getProperty("java.class.path")));
-    	List<Recipe> list = recipeDao.allRecipesByCook("Ugo", "Benfante");
-    	assertEquals(2, list.size());      
+    	List<Recipe> list = recipeDao.allRecipesByCook("Sow", "Boar");
+    	assertEquals(1, list.size());      
     }
     
     public void testFindByAuthor() {
     	
-        List<Recipe> books = recipeDao.findByAuthor("Doug Lea");
+        List<Recipe> books = recipeDao.findByAuthor("Mr Bean");
         assertEquals(1, books.size());
-        assertEquals(books.get(0).getTitle(), "Concurrent programming in java second edition");
+        assertEquals(books.get(0).getTitle(), "What an amazon eats");
         
     }
     

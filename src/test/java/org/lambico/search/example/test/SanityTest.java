@@ -7,21 +7,21 @@ import org.lambico.search.example.dao.RecipeDao;
 public class SanityTest extends BaseTest {
 
     @Resource
-    private RecipeDao personDao;
+    private RecipeDao recipeD;
     @Resource
-    private RecipeBo personBO;
+    private RecipeBo recipeBO1;
 
     /**
      * Test the wiring of BO resources.
      */
     public void testBoResources() {
-        assertNotNull(personBO);
+        assertNotNull(recipeBO1);
     }
 
     /**
      * Test the wiring of DAO resources.
      */
     public void testDaoResources() {
-        assertNotNull(personDao);
+        assertNotNull(recipeD);
     }
 }
