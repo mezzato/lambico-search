@@ -1,53 +1,31 @@
-/**
- * Copyright (C) 2009 Lambico Team <lucio.benfante@gmail.com>
- *
- * This file is part of Lambico Example - Console Spring Hibernate.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.lambico.search.example.dao;
 
-import org.lambico.search.example.dao.BookDao;
+import org.lambico.search.example.dao.RecipeDao;
 import java.util.List;
 
 import javax.annotation.Resource;
-import org.lambico.search.example.po.Book;
+import org.lambico.search.example.po.Recipe;
 import org.lambico.search.example.test.BaseTest;
 
-/**
- *
- * @author Enrico Giurin
- */
 public class BookDaoTest extends BaseTest {
     
     @Resource
-    private BookDao bookDao;
+    private RecipeDao recipeDao;
     
     
     public void testAllBooksByBorrower() {
-    	List<Book> list = bookDao.allBooksByBorrower("Ugo", "Benfante");
+    	System.out.println(String.format("The classpath is %s",  System.getProperty("java.class.path")));
+    	List<Recipe> list = recipeDao.allRecipesByCook("Ugo", "Benfante");
     	assertEquals(2, list.size());      
     }
     
     public void testFindByAuthor() {
     	
-        List<Book> books = bookDao.findByAuthor("Doug Lea");
+        List<Recipe> books = recipeDao.findByAuthor("Doug Lea");
         assertEquals(1, books.size());
         assertEquals(books.get(0).getTitle(), "Concurrent programming in java second edition");
         
     }
-
     
    
     

@@ -18,7 +18,7 @@
 package org.lambico.search.example.test;
 
 import org.lambico.test.spring.hibernate.DBTest;
-import org.lambico.search.example.po.Book;
+import org.lambico.search.example.po.Recipe;
 import org.lambico.search.example.po.Person;
 
 /**
@@ -41,7 +41,7 @@ public abstract class BaseTest extends DBTest {
 //    }
     @Override
     public Class[] getFixtureClasses() {
-        return new Class[]{Person.class, Book.class};
+        return new Class[]{Person.class, Recipe.class};
     }
 
     @Override
