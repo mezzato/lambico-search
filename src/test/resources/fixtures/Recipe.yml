@@ -1,0 +1,15 @@
+- &Recipe-Chicken
+  author: "Chick Corea"
+  title: "Jazzed skewer"
+  cook: *Person-chickener
+  numPages: 100
+- &Recipe-Pork
+  author: "Piggy Bank"
+  title: "Eggs n Bacon"
+  cook: *Person-porker
+  numPages: 200
+- &Recipe-Veggie
+  author: "Mr Bean"
+  title: "What an amazon eats"
+  cook: *Person-vegan
+  numPages: 300

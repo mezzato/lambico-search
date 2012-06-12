@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.lambico.search.example.po.Recipe;
 import org.lambico.search.example.test.BaseTest;
 
-public class BookDaoTest extends BaseTest {
+public class RecipeDaoTest extends BaseTest {
     
     @Resource
     private RecipeDao recipeDao;
