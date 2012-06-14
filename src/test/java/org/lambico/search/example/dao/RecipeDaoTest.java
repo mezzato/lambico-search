@@ -12,12 +12,19 @@ public class RecipeDaoTest extends BaseTest {
     @Resource
     private RecipeDao recipeDao;
     
+    public void testAllRecipesWithSomeText() {
+    	
+    	List<Recipe> list = recipeDao.allRecipesByExactText("süßer Senf");
+    	assertEquals(1, list.size());      
+    }
+    
     
     public void testAllRecipesByCook() {
-    	System.out.println(String.format("The classpath is %s",  System.getProperty("java.class.path")));
+    	
     	List<Recipe> list = recipeDao.allRecipesByCook("Sow", "Boar");
     	assertEquals(1, list.size());      
     }
+
     
     public void testFindByAuthor() {
     	

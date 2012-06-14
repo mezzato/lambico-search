@@ -16,4 +16,6 @@ public interface RecipeDao extends GenericDao<Recipe, Long> {
     List<Recipe> findByTitle(String title);
 
     List<Recipe> allRecipesByCook(String cookFirstName, String cookLastName);
+    
+    List<Recipe> allRecipesByExactText(String searchText);
 }

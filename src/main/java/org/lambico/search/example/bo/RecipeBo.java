@@ -25,14 +25,21 @@ public class RecipeBo {
     @Resource
     private RecipeDao recipeDao;
 	
+    
+    private String[] createSampleRecord(String author, String cookFirstName, String text){
+    	String[] arr = {author, cookFirstName, text};
+    	return arr;
+    }
 
     @Transactional()
     public void populateArchive() throws ParseException {
     	
-    	Map<String, String> samples = new HashMap<String, String>();
-    	samples.put("Rocky salmon on the spit", "Jamie Oliver");
-    	samples.put("A grill on an electric guitar", "Carlos Santana");
-    	samples.put("Fist mashed patatoes", "Mike Tyson");
+    	Map<String, String[]> samples = new HashMap<String, String[]>();
+    	samples.put("Rocky salmon on the spit", new String[]{"Jamie Oliver", "Cook 1", "This must be something weird in English, exotic, practical, \n " +
+    			"not too complicated though, it would be a waste of time!"});
+    	samples.put("A grill on an electric guitar", new String[] {"Carlos Santana", "Cook 2", 
+    			"Dieser Text ist auf Deutsch, süßer Senf und Weißwurst sind immer herzlich willkommen."});
+    	samples.put("Fist mashed patatoes", new String[] {"Mike Tyson", "Cook 3", "This is Greek: εὐαγγέλιον"});
     	
     	//SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     	
@@ -40,17 +47,18 @@ public class RecipeBo {
     	
     	
     	List<Recipe> searches = null;
-		for (Map.Entry<String, String> item : samples.entrySet()) {
+		for (Map.Entry<String, String[]> item : samples.entrySet()) {
 			String title = item.getKey();
-			String author = item.getValue();
+			String[] vals = item.getValue();
+			String author = vals[0];
 			
 			searches = recipeDao.findByAuthorAndTitle(author, title);
 			
 			if (searches.isEmpty()) {
-	            Recipe r = new Recipe(author, title);
+	            Recipe r = new Recipe(author, title, vals[2]);
 	            
 	            Person cook = new Person();
-	            cook.setFirstName(String.format("Cook for recipe: %s", title));
+	            cook.setFirstName(vals[1]);
 	            calendar.add(Calendar.HOUR, 24);
 	            cook.setBirthDate(calendar.getTime());
 	            

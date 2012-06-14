@@ -10,15 +10,28 @@ import org.lambico.po.hibernate.EntityBase;
 value = {
     @NamedQuery(name = "Recipe.allRecipesByCook",
     query =
-    "from Recipe r where upper(r.cook.firstName) = upper(?) and upper(r.cook.lastName) = upper(?)")})
+    "from Recipe r where upper(r.cook.firstName) = upper(?) and upper(r.cook.lastName) = upper(?)"), 
+    @NamedQuery(name = "Recipe.allRecipesByExactText",
+    query =
+    "from Recipe r where r.text like '%' || ? || '%'")
+	})
 public class Recipe extends EntityBase {
 
 	private int numPages = 0;
     private String author = null;
     private String title = null;
     private Person cook = null;
+    private String text = null;
 
-    /**
+    public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	/**
      *
      */
     public Recipe() {
@@ -26,12 +39,17 @@ public class Recipe extends EntityBase {
     }
 
     public Recipe(String author, String title) {
-        this(author, title, 0);
+        this(author, title, null, 0);
+    }
+    
+    public Recipe(String author, String title, String text) {
+        this(author, title, text, 0);
     }
 
-    public Recipe(String author, String title, int numPages) {
+    public Recipe(String author, String title, String text, int numPages) {
         this.author = author;
         this.title = title;
+        this.text = text;
         this.numPages = numPages;
     }
 
