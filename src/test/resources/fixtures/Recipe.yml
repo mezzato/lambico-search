@@ -3,7 +3,7 @@
   title: "Jazzed skewer"
   cook: *Person-chickener
   numPages: 100
-  text: "This must be something weird in English, exotic, practical, \n not too complicated though, it would be a waste of time!"
+  text: "This must be something weird in English, exotic, practical, not too complicated though, it would be a waste of time!"
 
 - &Recipe-Pork
   author: "Piggy Bank"
@@ -17,4 +17,4 @@
   title: "What an amazon eats"
   cook: *Person-vegan
   numPages: 300
-  text: "This is Greek with tabbing: \t εὐαγγέλιον"
+  text: "This is Greek with tabbing: εὐαγγέλιον"
