@@ -1,10 +1,7 @@
 package org.lambico.search.example.bo;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Collections;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -12,7 +9,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.lambico.search.example.dao.RecipeDao;
 import org.lambico.search.example.po.Person;
 import org.lambico.search.example.po.Recipe;

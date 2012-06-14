@@ -3,6 +3,9 @@ package org.lambico.search.example.po;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.lambico.po.hibernate.EntityBase;
 
 @javax.persistence.Entity()
@@ -78,6 +81,7 @@ public class Recipe extends EntityBase {
     }
 
     @ManyToOne
+    @Cascade(value = CascadeType.ALL)
     public Person getCook() {
         return cook;
     }

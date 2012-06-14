@@ -17,12 +17,18 @@
 
 	<tx:annotation-driven />
 
+	<!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
+		destroy-method="close"> <property name="driverClassName" value="org.hsqldb.jdbcDriver" 
+		/> <property name="url" value="jdbc:hsqldb:mem:exampleDB" /> <property name="username" 
+		value="sa" /> <property name="password" value="" /> </bean> -->
+
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
-		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
-		<property name="url" value="jdbc:hsqldb:mem:exampleDB" />
-		<property name="username" value="sa" />
-		<property name="password" value="" />
+		<!-- <property name="driverClassName" value="org.hsqldb.jdbcDriver"/> -->
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="username" value="postgres" />
+		<property name="password" value="0dm1n1str0t0r" />
+		<property name="url" value="jdbc:postgresql://localhost/lambico" />
 	</bean>
 
 	<bean id="sessionFactory" parent="abstractSessionFactory">
