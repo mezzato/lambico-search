@@ -1,11 +1,17 @@
 package org.lambico.search.example.po;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.search.annotations.DocumentId;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 import org.lambico.po.hibernate.EntityBase;
 
 @javax.persistence.Entity()
@@ -18,6 +24,7 @@ value = {
     query =
     "from Recipe r where r.text like '%' || ? || '%'")
 	})
+@Indexed
 public class Recipe extends EntityBase {
 
 	private int numPages = 0;
@@ -26,6 +33,22 @@ public class Recipe extends EntityBase {
     private Person cook = null;
     private String text = null;
 
+    /*@DocumentId
+    public Long getHibernateId() {
+        return this.id;
+    }
+    */
+    
+    @Field
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    
+    @Field
     public String getText() {
 		return text;
 	}
@@ -72,13 +95,7 @@ public class Recipe extends EntityBase {
         this.numPages = numPages;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    
 
     @ManyToOne
     @Cascade(value = CascadeType.ALL)

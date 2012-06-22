@@ -36,6 +36,11 @@
 			<props merge="true">
 				<!--prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop -->
 				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				
+				<!-- Hibernate Search configuration -->
+			    <prop key="hibernate.search.default.indexBase">./build/indexes</prop>
+			    <prop key="hibernate.search.default.directory_provider">org.hibernate.search.store.RAMDirectoryProvider</prop>
+				
 			</props>
 		</property>
 		<property name="eventListeners">

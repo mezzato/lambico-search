@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 import org.lambico.po.hibernate.EntityBase;
 
 @javax.persistence.Entity()
