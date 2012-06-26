@@ -51,7 +51,7 @@ public class HibernateSearchTest extends BaseTest {
 			@SuppressWarnings("unchecked")
 			final List<Recipe> results = query.list(); // execute the query
 			
-			CollectionUtils.filter(results, new Predicate() {public boolean evaluate(Object o) { return o != null; }});
+			//CollectionUtils.filter(results, new Predicate() {public boolean evaluate(Object o) { return o != null; }});
 
 			assertEquals(results.size(), 2);
 		} finally {
@@ -97,8 +97,8 @@ public class HibernateSearchTest extends BaseTest {
 
 			@SuppressWarnings("unchecked")
 			final List<Recipe> results = query.list(); // execute the query
-			CollectionUtils.filter(results, new Predicate() {public boolean evaluate(Object o) { return o != null; }});
-			//assertEquals(results.size(), 1);
+			//CollectionUtils.filter(results, new Predicate() {public boolean evaluate(Object o) { return o != null; }});
+			assertEquals(results.size(), 1);
 
 		} finally {
 			SessionHolder.getSession().close();

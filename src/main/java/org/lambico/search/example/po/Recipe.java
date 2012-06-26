@@ -33,16 +33,7 @@ public class Recipe extends EntityBase {
     private String title = null;
     private Person cook = null;
     private String text = null;
-
-    @DocumentId
-    public Long getHibernateSearchId() {
-        return this.id;
-    }
- 
-    public void setHibernateSearchId(Long id) {
-    	//this.id = id;
-    }
-    
+   
 
     @Field
     public String getTitle() {
