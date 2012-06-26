@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -33,12 +34,16 @@ public class Recipe extends EntityBase {
     private Person cook = null;
     private String text = null;
 
-    /*@DocumentId
-    public Long getHibernateId() {
+    @DocumentId
+    public Long getHibernateSearchId() {
         return this.id;
     }
-    */
+ 
+    public void setHibernateSearchId(Long id) {
+    	//this.id = id;
+    }
     
+
     @Field
     public String getTitle() {
         return title;

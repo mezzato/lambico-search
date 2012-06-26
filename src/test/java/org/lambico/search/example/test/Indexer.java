@@ -1,4 +1,4 @@
-package org.lambico.search.example.action;
+package org.lambico.search.example.test;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.search.FullTextSession;
 import org.hibernate.search.jpa.FullTextEntityManager;
-import org.lambico.search.example.po.Person;
+import org.lambico.search.example.po.Recipe;
 
 /**
  * Example 2.8, 2.9
@@ -22,9 +22,9 @@ public class Indexer {
 		ftem.getTransaction().begin();
 		
 		@SuppressWarnings("unchecked")
-		List<Person> items = em.createQuery("select i from Person i").getResultList();
+		List<Recipe> items = em.createQuery("select i from Recipe i").getResultList();
 		
-		for (Person item : items) {
+		for (Recipe item : items) {
 		    ftem.index(item);  //manually index an Person instance
 		}
 		
@@ -39,9 +39,9 @@ public class Indexer {
 		ftSession.getTransaction().begin();
 		
 		@SuppressWarnings("unchecked")
-		List<Person> items = session.createCriteria(Person.class).list();
+		List<Recipe> items = session.createCriteria(Recipe.class).list();
 		
-		for (Person item : items) {
+		for (Recipe item : items) {
 		    ftSession.index(item);  //manually index an Person instance
 		}
 		
