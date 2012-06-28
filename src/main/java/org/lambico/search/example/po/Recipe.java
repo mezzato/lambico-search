@@ -20,7 +20,7 @@ value = {
     "from Recipe r where r.text like '%' || ? || '%'")
 	})
 @Indexed
-public class Recipe extends EntityBase {
+public class Recipe extends SearchableEntityBase {
 
 	private int numPages = 0;
     private String author = null;
